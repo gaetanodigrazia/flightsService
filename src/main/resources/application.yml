@@ -1,0 +1,17 @@
+server:
+  port: 8084
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/flightApp_realm
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: flightApp_realm
+  resource: flight_client
+  credentials:
+    secret: ${clientSecret:"toReplace"}
+  bearer-only: true

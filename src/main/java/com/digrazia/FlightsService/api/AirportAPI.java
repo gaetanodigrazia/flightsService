@@ -2,7 +2,7 @@ package com.digrazia.FlightsService.api;
 
 import org.springframework.http.ResponseEntity;
 
-public interface FlightsAPI {
+public interface AirportAPI {
 
     ResponseEntity<String> simpleGet();
 }
