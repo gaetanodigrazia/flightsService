@@ -1,24 +1,17 @@
+server:
+  port: 8084
+
 spring:
-  kafka:
-    consumer:
-      bootstrap-servers: localhost:9092
-      group-id: group_id
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
   security:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: http://localhost:8080/auth/realms/your-realm  # URL issuer del realm
-server:
-  port: 8084
+          issuer-uri: http://localhost:8080/realms/flightApp_realm
 
 keycloak:
-  auth-server-url: http://localhost:8080/auth  # URL del server Keycloak
-  realm: your-realm                             # Nome del realm su Keycloak
-  resource: your-client-id                      # ID del client registrato su Keycloak
-  principal-attribute: preferred_username       # Attributo principale per mappare l'utente
-  use-resource-role-mappings: true              # Usa i ruoli definiti per il client
-
-
+  auth-server-url: http://localhost:8080/auth
+  realm: flightApp_realm
+  resource: flight_client
+  credentials:
+    secret: ${clientSecret:"toReplace"}
+  bearer-only: true
