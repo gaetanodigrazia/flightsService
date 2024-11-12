@@ -1,10 +1,17 @@
-spring:
-  kafka:
-    consumer:
-      bootstrap-servers: localhost:9092
-      group-id: group_id
-      auto-offset-reset: earliest
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
 server:
   port: 8084
+
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8080/realms/flightApp_realm
+
+keycloak:
+  auth-server-url: http://localhost:8080/auth
+  realm: flightApp_realm
+  resource: flight_client
+  credentials:
+    secret: ${clientSecret:"toReplace"}
+  bearer-only: true
