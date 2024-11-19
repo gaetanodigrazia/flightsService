@@ -1,10 +1,24 @@
-package com.digrazia.FlightsService.integration.model;
+package com.digrazia.FlightsService.integration.database.entity.model;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import org.hibernate.annotations.GenericGenerator;
+import jakarta.persistence.Entity;
 
 import java.util.Objects;
 
+@Entity
 public class AirportEntity {
+
+    @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
+    @Column(updatable = false, nullable = false)
+    private String airportId;
+
+    @Column(unique=true)
     private String icao;
     private String iata;
     private String name;
