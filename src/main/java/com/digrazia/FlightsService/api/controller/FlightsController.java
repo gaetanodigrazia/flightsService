@@ -7,11 +7,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/admin")
 public class FlightsController implements FlightsAPI {
 
     @Override
-    @GetMapping
+    @GetMapping("/simpleGet")
     public ResponseEntity<String> simpleGet() {
         return ResponseEntity.ok("simpleGet");
     }
