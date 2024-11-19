@@ -9,7 +9,7 @@ services:
       KC_DB: postgres
       KC_DB_URL: jdbc:postgresql://db:5432/keycloak
       KC_DB_USERNAME: keycloak
-      KC_DB_PASSWORD: keycloak_password   # Assicurati che questa password sia corretta
+      KC_DB_PASSWORD: keycloak_password
       KC_HOSTNAME: localhost
     ports:
       - 8080:8080
@@ -23,7 +23,7 @@ services:
     environment:
       POSTGRES_DB: keycloak
       POSTGRES_USER: keycloak
-      POSTGRES_PASSWORD: keycloak_password  # Assicurati che questa password sia uguale a quella di Keycloak
+      POSTGRES_PASSWORD: keycloak_password
     ports:
       - "5432:5432"
     volumes:
@@ -31,16 +31,18 @@ services:
 
   mysql:
     image: mysql:8.0
-    container_name: mysql_db
+    container_name: flightServiceSQL
+    command: --init-file /data/application/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: root_password
-      MYSQL_DATABASE: application_db
+      MYSQL_DATABASE: flightService
       MYSQL_USER: app_user
       MYSQL_PASSWORD: app_password
     ports:
-      - "3306:3306"
+      - "3396:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql
 
 volumes:
   postgres_data:
