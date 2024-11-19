@@ -1,6 +1,6 @@
 package com.digrazia.FlightsService.integration.kafka.configuration;
 
-import com.digrazia.FlightsService.integration.model.AirportEntity;
+import com.digrazia.FlightsService.integration.kafka.model.AirportKafkaEntity;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
@@ -18,8 +18,8 @@ import java.util.Map;
 public class KafkaConsumerConfig {
 
     @Bean
-    public ConsumerFactory<String, AirportEntity> consumerFactory() {
-        JsonDeserializer<AirportEntity> deserializer = new JsonDeserializer<>(AirportEntity.class);
+    public ConsumerFactory<String, AirportKafkaEntity> consumerFactory() {
+        JsonDeserializer<AirportKafkaEntity> deserializer = new JsonDeserializer<>(AirportKafkaEntity.class);
         deserializer.setRemoveTypeHeaders(false);
         deserializer.addTrustedPackages("*");
         deserializer.setUseTypeMapperForKey(true);
@@ -34,8 +34,8 @@ public class KafkaConsumerConfig {
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, AirportEntity> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, AirportEntity> factory = new ConcurrentKafkaListenerContainerFactory<>();
+    public ConcurrentKafkaListenerContainerFactory<String, AirportKafkaEntity> kafkaListenerContainerFactory() {
+        ConcurrentKafkaListenerContainerFactory<String, AirportKafkaEntity> factory = new ConcurrentKafkaListenerContainerFactory<>();
         factory.setConsumerFactory(consumerFactory());
         return factory;
     }
