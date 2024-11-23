@@ -57,13 +57,13 @@ class AirportConsumedKafkaTest {
     }
 
     @Test
-    void shouldHandleProductPriceChangedEvent() {
+    void airportEntityConsumed() {
         AirportEntity airportKafkaEntity = new AirportEntity();
         airportKafkaEntity.setIcao("sampleIcaoBis");
         airportKafkaEntity.setIata("sampleIataBis");
         airportKafkaEntity.setCountry("sampleCountryBis");
 
-        kafkaTemplate.send("groupd_id", airportKafkaEntity.getIcao(), airportKafkaEntity);
+        kafkaTemplate.send("group_id", airportKafkaEntity.getIcao(), airportKafkaEntity);
 
         await()
                 .pollInterval(Duration.ofSeconds(3))

@@ -27,8 +27,12 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
                 jwtGrantedAuthoritiesConverter.convert(jwt).stream(),
                 extractRoles(jwt).stream()
         ).collect(Collectors.toSet());
+        String databaseId = jwt.getClaimAsString("database_id");
 
-        return new JwtAuthenticationToken(jwt, authorities);
+        JwtAuthenticationToken token = new JwtAuthenticationToken(jwt, authorities);
+        token.setDetails(databaseId);
+
+        return token;
     }
 
     private Collection<? extends GrantedAuthority> extractRoles(Jwt jwt) {
@@ -52,7 +56,6 @@ public class JwtAuthConverter implements Converter<Jwt, AbstractAuthenticationTo
                 .map(role -> new SimpleGrantedAuthority("ROLE_" + role.toUpperCase()))
                 .collect(Collectors.toSet());
     }
-
 
 
 }

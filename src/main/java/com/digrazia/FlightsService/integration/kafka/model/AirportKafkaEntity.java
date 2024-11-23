@@ -1,19 +1,39 @@
 package com.digrazia.FlightsService.integration.kafka.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import java.util.Objects;
 
 public class AirportKafkaEntity {
+    @JsonProperty("icao")
     private String icao;
+
+    @JsonProperty("iata")
     private String iata;
+
+    @JsonProperty("name")
     private String name;
+
+    @JsonProperty("city")
     private String city;
+
+    @JsonProperty("region")
     private String region;
+
+    @JsonProperty("country")
     private String country;
 
-    private int elevationFt;
+    @JsonProperty("latitude")
     private double latitude;
+
+    @JsonProperty("longitude")
     private double longitude;
+
+    @JsonProperty("timezone")
     private String timezone;
+
+    @JsonProperty("elevation_ft")  // Usa il nome del campo JSON
+    private int elevationFt;
 
     public AirportKafkaEntity() {
 
