@@ -6,7 +6,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 public interface AirportAPI {
 
-    ResponseEntity<String> simpleGet();
-
     AirportDTO getAirportInfo(@PathVariable String airportIcao);
 }

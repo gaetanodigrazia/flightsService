@@ -1,42 +1,28 @@
 package com.digrazia.FlightsService.integration.kafka.configuration;
 
-import com.digrazia.FlightsService.integration.kafka.model.AirportKafkaEntity;
-import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.config.ConcurrentKafkaListenerContainerFactory;
 import org.springframework.kafka.core.ConsumerFactory;
-import org.springframework.kafka.core.DefaultKafkaConsumerFactory;
-import org.springframework.kafka.support.serializer.ErrorHandlingDeserializer;
-import org.springframework.kafka.support.serializer.JsonDeserializer;
-
-import java.util.HashMap;
-import java.util.Map;
 
 @Configuration
 public class KafkaConsumerConfig {
 
     @Bean
-    public ConsumerFactory<String, AirportKafkaEntity> consumerFactory() {
-        JsonDeserializer<AirportKafkaEntity> deserializer = new JsonDeserializer<>(AirportKafkaEntity.class);
-        deserializer.setRemoveTypeHeaders(false);
-        deserializer.addTrustedPackages("*");
-        deserializer.setUseTypeMapperForKey(true);
-
-        Map<String, Object> props = new HashMap<>();
-        props.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
-        props.put(ConsumerConfig.GROUP_ID_CONFIG, "group_id");
-        props.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, ErrorHandlingDeserializer.class);
-        props.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG, deserializer);
-
-        return new DefaultKafkaConsumerFactory<>(props, new StringDeserializer(), deserializer);
+    public ConcurrentKafkaListenerContainerFactory<String, String> flightsKafkaListenerContainerFactory(
+            ConsumerFactory<String, String> flightsConsumerFactory) {
+        ConcurrentKafkaListenerContainerFactory<String, String> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(flightsConsumerFactory);
+        return factory;
     }
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, AirportKafkaEntity> kafkaListenerContainerFactory() {
-        ConcurrentKafkaListenerContainerFactory<String, AirportKafkaEntity> factory = new ConcurrentKafkaListenerContainerFactory<>();
-        factory.setConsumerFactory(consumerFactory());
+    public ConcurrentKafkaListenerContainerFactory<String, String> airportKafkaListenerContainerFactory(
+            ConsumerFactory<String, String> airportConsumerFactory) {
+        ConcurrentKafkaListenerContainerFactory<String, String> factory =
+                new ConcurrentKafkaListenerContainerFactory<>();
+        factory.setConsumerFactory(airportConsumerFactory);
         return factory;
     }
 }

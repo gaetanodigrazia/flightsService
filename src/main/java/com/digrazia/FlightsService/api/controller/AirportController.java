@@ -25,14 +25,10 @@ public class AirportController implements AirportAPI {
         this.airportService = airportService;
     }
 
-    @Override
-    @GetMapping("/public/simpleGet")
-    public ResponseEntity<String> simpleGet() {
-        return ResponseEntity.ok("simpleGet");
-    }
+
 
     @Override
-    @GetMapping("/user/airportInfo/{airportIcao}")
+    @GetMapping("/admin/airportInfo/{airportIcao}")
     public AirportDTO getAirportInfo(@PathVariable String airportIcao) {
         AirportDomain airportDomain = airportService.airportInfo(airportIcao);
         return airportDTOMapper.fromDomainToDTO(airportDomain);
