@@ -1,0 +1,331 @@
+{
+	"info": {
+		"_postman_id": "fc47f390-35ba-484f-b559-787844406aff",
+		"name": "FlightService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26330500"
+	},
+	"item": [
+		{
+			"name": "Admin API",
+			"item": [
+				{
+					"name": "Get Flight Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJSUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJqNVRzMDRaU3lKSlY1UGFzQlVPZkhkcF9WTkJfbHlZM05jUjRSbWwwZlMwIn0.eyJleHAiOjE3MzIzNzI4NDksImlhdCI6MTczMjM3MjU0OSwianRpIjoiZThiNTU3OTgtMzVhNy00MzVlLTgxNzctMjFjZjZjMzA0ZTBiIiwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo4MDgwL3JlYWxtcy9mbGlnaHRBcHBfcmVhbG0iLCJhdWQiOiJhY2NvdW50Iiwic3ViIjoiNDBhMGZhNDktMTYxNi00MzYyLThjMmItNTllZWFlMTMxN2FkIiwidHlwIjoiQmVhcmVyIiwiYXpwIjoiZmxpZ2h0X2NsaWVudCIsInNpZCI6IjM3MzUzNjI4LWU3ODctNDE4ZC1hZjY0LTU3N2E2NDJjOWZlMiIsImFjciI6IjEiLCJhbGxvd2VkLW9yaWdpbnMiOlsiaHR0cDovL2xvY2FsaG9zdDo4MDg0Il0sInJlYWxtX2FjY2VzcyI6eyJyb2xlcyI6WyJkZWZhdWx0LXJvbGVzLWZsaWdodGFwcF9yZWFsbSIsIm9mZmxpbmVfYWNjZXNzIiwiYWRtaW4iLCJ1bWFfYXV0aG9yaXphdGlvbiJdfSwicmVzb3VyY2VfYWNjZXNzIjp7ImFjY291bnQiOnsicm9sZXMiOlsibWFuYWdlLWFjY291bnQiLCJtYW5hZ2UtYWNjb3VudC1saW5rcyIsInZpZXctcHJvZmlsZSJdfX0sInNjb3BlIjoiZW1haWwgcHJvZmlsZSIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZGF0YWJhc2VfaWQiOiIwMDAwMDAwMC0wMDAwLTAwMDAtMDAwMC0wMDAwMDAwMDAwMDQiLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJhZG1pbiJ9.rufs8PwguIso5GGeje6Oe3lP86zsCEFadD1JtloVZCovP1pOlPf41NTbN6SM9hij5CZ2qhUaCW_nez2VUoime1vUa4Xjn_br79jLXV-WSjCwprQgs0K1aEQey8cLa_AS8fZrlh6Hw4t1FKfVi8HwqzTa8Sr-lHBJbs7Qulm_AgtfXHu6hXbCFKZXVZEYUGt_Rgr-ljHhE9UC-HW6JLBvWLMeTtXkzWBvYBD4hkNhk4A3c6fs38ToathIU2usqzcly3rgqXES0c8yC8q45lxUhp-nwotQyq-XqNZN3ZLce5gt97Y2fcb23cIYofx483De0SBO7QfbILTqYEbahqqmPA",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/admin/flight/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"admin",
+								"flight",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Airport",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/admin/airportInfo/EDDM",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"admin",
+								"airportInfo",
+								"EDDM"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User API",
+			"item": [
+				{
+					"name": "Get Flight Info",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/user/flight/info",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"user",
+								"flight",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Airport",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/user/airportInfo/EDDM",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"user",
+								"airportInfo",
+								"EDDM"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User Details",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{access_token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/user/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"user",
+								"details"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GetAdminToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"let admin_access_token = response.access_token",
+							"pm.collectionVariables.set(\"access_token\", admin_access_token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "flight_client",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "HdsV5jeL4QH1UB8qEuq7cpN2p4bBexMP",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/flightApp_realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"flightApp_realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"http://localhost:8080/realms/<YOUR_REALM>/protocol/openid-connect/token\" \\\n-H \"Content-Type: application/x-www-form-urlencoded\" \\\n-d \"client_id=<YOUR_CLIENT_ID>\" \\\n-d \"username=<YOUR_USERNAME>\" \\\n-d \"password=<YOUR_PASSWORD>\" \\\n-d \"grant_type=password\" \\\n-d \"client_secret=<YOUR_CLIENT_SECRET>\" # Solo se il client è confidential\n"
+			},
+			"response": []
+		},
+		{
+			"name": "GetUserToken",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let response = pm.response.json();",
+							"let user_access_token = response.access_token",
+							"pm.collectionVariables.set(\"access_token\", user_access_token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "client_id",
+							"value": "flight_client",
+							"type": "text"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "grant_type",
+							"value": "password",
+							"type": "text"
+						},
+						{
+							"key": "client_secret",
+							"value": "HdsV5jeL4QH1UB8qEuq7cpN2p4bBexMP",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/realms/flightApp_realm/protocol/openid-connect/token",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"realms",
+						"flightApp_realm",
+						"protocol",
+						"openid-connect",
+						"token"
+					]
+				},
+				"description": "Generated from cURL: curl -X POST \"http://localhost:8080/realms/<YOUR_REALM>/protocol/openid-connect/token\" \\\n-H \"Content-Type: application/x-www-form-urlencoded\" \\\n-d \"client_id=<YOUR_CLIENT_ID>\" \\\n-d \"username=<YOUR_USERNAME>\" \\\n-d \"password=<YOUR_PASSWORD>\" \\\n-d \"grant_type=password\" \\\n-d \"client_secret=<YOUR_CLIENT_SECRET>\" # Solo se il client è confidential\n"
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "access_token",
+			"value": ""
+		}
+	]
+}

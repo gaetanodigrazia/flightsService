@@ -1,6 +1,6 @@
 package com.digrazia.FlightsService.integration.kafka.consumer;
 
-import com.digrazia.FlightsService.business.mapper.entity.AirportEntityMapper;
+import com.digrazia.FlightsService.business.mapper.domain.AirportDomainMapper;
 import com.digrazia.FlightsService.integration.database.entity.model.AirportEntity;
 import com.digrazia.FlightsService.integration.database.entity.model.FlightEntity;
 import com.digrazia.FlightsService.integration.database.mapper.FlightEntityMapper;
@@ -25,7 +25,7 @@ public class KafkaConsumer {
     private AirportRepository airportRepository;
 
     @Autowired
-    private AirportEntityMapper airportEntityMapper;
+    private AirportDomainMapper airportDomainMapper;
     @Autowired
     FlightEntityMapper flightEntityMapper;
     @Autowired
@@ -85,7 +85,7 @@ public class KafkaConsumer {
     }
 
     private void saveOrUpdateEntity(AirportKafkaEntity airportKafkaEntity){
-        AirportEntity airportEntity = airportEntityMapper.fromKafkaEntityToEntity(airportKafkaEntity);
+        AirportEntity airportEntity = airportDomainMapper.fromKafkaEntityToEntity(airportKafkaEntity);
         airportRepository.findByIcao(airportEntity.getIcao())
                 .ifPresentOrElse(foundAirport -> {
                     if (!airportEntity.toString().equals(foundAirport.toString())) {

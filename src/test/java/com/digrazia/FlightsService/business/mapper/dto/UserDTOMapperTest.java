@@ -11,11 +11,9 @@ import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fr
 import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToReducedAirportDTO;
 import static com.digrazia.FlightsService.utils.AirportAssert.fromAirportDomainToAirportDTOAssertions;
 import static com.digrazia.FlightsService.utils.AirportAssert.fromAirportDomainToReducedAirportDTOAssertions;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 @SpringBootTest
-public class AirportDTOMapperTest {
+public class UserDTOMapperTest {
     @Autowired
     private AirportDTOMapper mapper;
 

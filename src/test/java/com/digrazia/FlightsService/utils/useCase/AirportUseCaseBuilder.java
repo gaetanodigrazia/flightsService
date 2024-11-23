@@ -1,4 +1,4 @@
-package com.digrazia.FlightsService.business.mapper.useCase;
+package com.digrazia.FlightsService.utils.useCase;
 
 import com.digrazia.FlightsService.business.model.domain.AirportDomain;
 import com.digrazia.FlightsService.business.model.dto.AirportDTO;
