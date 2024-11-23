@@ -7,7 +7,7 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface AirportDTOMapper {
-    AirportDTO fromDomainToDTO(AirportDomain airportDomain);
+    AirportDTO fromAirportDomainToAirportDTO(AirportDomain airportDomain);
 
     @Mapping(target = "id", ignore = true)
     AirportDomain fromDTOToDomain(AirportDTO airportDTO);
