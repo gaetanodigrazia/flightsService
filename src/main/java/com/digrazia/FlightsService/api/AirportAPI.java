@@ -18,7 +18,7 @@ public interface AirportAPI {
             content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                     schema = @Schema(implementation = AirportDTO.class))),
     })
-    AirportDTO getAllAirportInfo(@PathVariable String airportIcao);
+    AirportDTO getAllAirportInfo(@PathVariable(name = "airportIcao") String airportIcao);
 
     @Operation(operationId = "getAirportInfo", description = "getAirportInfo")
     @ApiResponses(value = {
@@ -26,5 +26,5 @@ public interface AirportAPI {
                     content = @Content(mediaType = MediaType.APPLICATION_JSON_VALUE,
                             schema = @Schema(implementation = ReducedAirportDTO.class))),
     })
-    ReducedAirportDTO getAirportInfo(@PathVariable String airportIcao);
+    ReducedAirportDTO getAirportInfo(@PathVariable(name = "airportIcao") String airportIcao);
 }

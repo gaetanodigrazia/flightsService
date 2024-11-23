@@ -1,5 +1,6 @@
-package com.digrazia.FlightsService.business.mapper.dto;
+package com.digrazia.FlightsService.business.mapper.domain;
 
+import com.digrazia.FlightsService.business.mapper.dto.AirportDTOMapper;
 import com.digrazia.FlightsService.business.model.domain.AirportDomain;
 import com.digrazia.FlightsService.business.model.dto.AirportDTO;
 import org.junit.jupiter.api.Nested;
@@ -7,15 +8,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToAirportDTO;
-import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToReducedAirportDTO;
 import static com.digrazia.FlightsService.utils.AirportAssert.fromAirportDomainToAirportDTOAssertions;
 import static com.digrazia.FlightsService.utils.AirportAssert.fromAirportDomainToReducedAirportDTOAssertions;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToAirportDTO;
+import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToReducedAirportDTO;
 
 @SpringBootTest
-public class AirportDTOMapperTest {
+public class FlightDomainMapperTest {
     @Autowired
     private AirportDTOMapper mapper;
 

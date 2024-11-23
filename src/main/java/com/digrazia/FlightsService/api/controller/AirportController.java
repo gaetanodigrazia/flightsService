@@ -34,7 +34,7 @@ public class AirportController implements AirportAPI {
     }
     @Override
     @GetMapping("/user/airportInfo/{airportIcao}")
-    public ReducedAirportDTO getAirportInfo(@PathVariable String airportIcao) {
+    public ReducedAirportDTO getAirportInfo(String airportIcao) {
         AirportDomain airportDomain = airportService.airportInfo(airportIcao);
 
         return airportDTOMapper.fromAirportDomainToReducedAirportDTO(airportDomain);
