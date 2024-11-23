@@ -4,18 +4,20 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import org.hibernate.annotations.GenericGenerator;
-import jakarta.persistence.Entity;
+
 
 import java.util.Objects;
 
 @Entity
+@Table(name = "airport")
 public class AirportEntity {
 
     @Id
     @GeneratedValue(generator = "UUID")
     @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
-    @Column(updatable = false, nullable = false)
+    @Column(updatable = false, nullable = false, name = "airport_id")
     private String airportId;
 
     @Column(unique=true)
@@ -26,6 +28,7 @@ public class AirportEntity {
     private String region;
     private String country;
 
+    @Column(name = "elevation_ft")
     private int elevationFt;
     private double latitude;
     private double longitude;
