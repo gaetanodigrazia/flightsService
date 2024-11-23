@@ -20,9 +20,12 @@ public class AirportServiceImpl implements AirportService {
         this.airportEntityMapper = airportEntityMapper;
     }
 
+
     @Override
-    public AirportDomain airportInfo(String icao) {
-        AirportEntity airportEntity = airportRepository.findByIcao(icao).orElseThrow(() -> new NotFoundException("Airport Icao Not Found"));
+    public AirportDomain airportInfo(String airportIcao) {
+        AirportEntity airportEntity = airportRepository.findByIcao(airportIcao).orElseThrow(() -> new NotFoundException("Airport not found"));
+
         return airportEntityMapper.fromEntityToDomain(airportEntity);
     }
+
 }

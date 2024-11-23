@@ -7,8 +7,12 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static com.digrazia.FlightsService.business.mapper.useCase.AirportUseCaseBuilder.whenMapperMethodTest;
+import static com.digrazia.FlightsService.business.mapper.useCase.AirportUseCaseBuilder.fromAirportDomainToAirportDTO;
+import static com.digrazia.FlightsService.business.mapper.useCase.AirportUseCaseBuilder.fromAirportDomainToReducedAirportDTO;
+import static com.digrazia.FlightsService.utils.AirportAssert.fromAirportDomainToAirportDTOAssertions;
+import static com.digrazia.FlightsService.utils.AirportAssert.fromAirportDomainToReducedAirportDTOAssertions;
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 @SpringBootTest
 public class AirportDTOMapperTest {
@@ -20,15 +24,30 @@ public class AirportDTOMapperTest {
 
         @Test
         void whenFullCorrectObjects_thenOk(){
-            AirportDTO expectedAirportDTO = whenMapperMethodTest()._1;
-            AirportDomain toMapAirportDomain = whenMapperMethodTest()._2;
+            AirportDTO expectedAirportDTO = fromAirportDomainToAirportDTO()._1;
+            AirportDomain toMapAirportDomain = fromAirportDomainToAirportDTO()._2;
 
             AirportDTO actualAirportDTO = mapper.fromAirportDomainToAirportDTO(toMapAirportDomain);
 
-            assertEquals(expectedAirportDTO, actualAirportDTO);
+            fromAirportDomainToAirportDTOAssertions(expectedAirportDTO, actualAirportDTO);
+        }
+    }
+
+    @Nested
+    class fromAirportDomainToReducedAirportDTO{
+
+        @Test
+        void whenFullCorrectObjects_thenOk(){
+            AirportDTO expectedAirportDTO = fromAirportDomainToReducedAirportDTO()._1;
+            AirportDomain toMapAirportDomain = fromAirportDomainToReducedAirportDTO()._2;
+
+            AirportDTO actualAirportDTO = mapper.fromAirportDomainToReducedAirportDTO(toMapAirportDomain);
+
+            fromAirportDomainToReducedAirportDTOAssertions(expectedAirportDTO, actualAirportDTO);
         }
 
     }
+
 
 
 }
