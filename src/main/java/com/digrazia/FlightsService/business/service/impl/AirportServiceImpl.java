@@ -1,7 +1,7 @@
 package com.digrazia.FlightsService.business.service.impl;
 
 import com.digrazia.FlightsService.business.exception.NotFoundException;
-import com.digrazia.FlightsService.business.mapper.entity.AirportEntityMapper;
+import com.digrazia.FlightsService.business.mapper.domain.AirportDomainMapper;
 import com.digrazia.FlightsService.business.model.domain.AirportDomain;
 import com.digrazia.FlightsService.business.service.AirportService;
 import com.digrazia.FlightsService.integration.database.entity.model.AirportEntity;
@@ -13,16 +13,19 @@ import org.springframework.stereotype.Service;
 public class AirportServiceImpl implements AirportService {
     @Autowired
     private AirportRepository airportRepository;
-    private final AirportEntityMapper airportEntityMapper;
+    private final AirportDomainMapper airportDomainMapper;
 
-    public AirportServiceImpl(AirportEntityMapper airportEntityMapper) {
+    public AirportServiceImpl(AirportDomainMapper airportDomainMapper) {
 
-        this.airportEntityMapper = airportEntityMapper;
+        this.airportDomainMapper = airportDomainMapper;
     }
+
 
     @Override
-    public AirportDomain airportInfo(String icao) {
-        AirportEntity airportEntity = airportRepository.findByIcao(icao).orElseThrow(() -> new NotFoundException("Airport Icao Not Found"));
-        return airportEntityMapper.fromEntityToDomain(airportEntity);
+    public AirportDomain airportInfo(String airportIcao) {
+        AirportEntity airportEntity = airportRepository.findByIcao(airportIcao).orElseThrow(() -> new NotFoundException("Airport not found"));
+
+        return airportDomainMapper.fromEntityToDomain(airportEntity);
     }
+
 }

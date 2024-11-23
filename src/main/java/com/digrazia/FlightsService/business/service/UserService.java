@@ -1,7 +1,8 @@
 package com.digrazia.FlightsService.business.service;
 
 import com.digrazia.FlightsService.business.model.domain.BookingDomain;
+import com.digrazia.FlightsService.business.model.domain.UserDomain;
 
 public interface UserService {
-    String userDetails(String userId);
+    UserDomain userDetails(String userId);
 }

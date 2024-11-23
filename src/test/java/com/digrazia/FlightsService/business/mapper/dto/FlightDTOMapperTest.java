@@ -7,15 +7,13 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToAirportDTO;
-import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToReducedAirportDTO;
 import static com.digrazia.FlightsService.utils.AirportAssert.fromAirportDomainToAirportDTOAssertions;
 import static com.digrazia.FlightsService.utils.AirportAssert.fromAirportDomainToReducedAirportDTOAssertions;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToAirportDTO;
+import static com.digrazia.FlightsService.utils.useCase.AirportUseCaseBuilder.fromAirportDomainToReducedAirportDTO;
 
 @SpringBootTest
-public class AirportDTOMapperTest {
+public class FlightDTOMapperTest {
     @Autowired
     private AirportDTOMapper mapper;
 

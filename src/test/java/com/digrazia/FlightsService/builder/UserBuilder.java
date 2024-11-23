@@ -4,7 +4,7 @@ import com.digrazia.FlightsService.business.model.domain.AirportDomain;
 import com.digrazia.FlightsService.business.model.dto.AirportDTO;
 import com.digrazia.FlightsService.business.model.dto.ReducedAirportDTO;
 
-public class AirportBuilder {
+public class UserBuilder {
     private static String id = "1";
     private static String airportId = "A001";
     private static String icao = "KATL";
