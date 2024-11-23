@@ -2,6 +2,7 @@ package com.digrazia.FlightsService.builder;
 
 import com.digrazia.FlightsService.business.model.domain.AirportDomain;
 import com.digrazia.FlightsService.business.model.dto.AirportDTO;
+import com.digrazia.FlightsService.business.model.dto.ReducedAirportDTO;
 
 public class AirportBuilder {
     private static String id = "1";
@@ -40,5 +41,9 @@ public class AirportBuilder {
         return new AirportDTO(airportId, icao, iata, name, city,
                 region, country, elevationFt,
                 latitude, longitude, timezone);
+    }
+
+    public static ReducedAirportDTO buildReducedAirportDTO() {
+        return new ReducedAirportDTO(name, city, region, country);
     }
 }

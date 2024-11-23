@@ -4,6 +4,7 @@ import com.digrazia.FlightsService.api.AirportAPI;
 import com.digrazia.FlightsService.business.mapper.dto.AirportDTOMapper;
 import com.digrazia.FlightsService.business.model.domain.AirportDomain;
 import com.digrazia.FlightsService.business.model.dto.AirportDTO;
+import com.digrazia.FlightsService.business.model.dto.ReducedAirportDTO;
 import com.digrazia.FlightsService.business.service.AirportService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +25,18 @@ public class AirportController implements AirportAPI {
     }
 
 
-
     @Override
     @GetMapping("/admin/airportInfo/{airportIcao}")
-    public AirportDTO getAirportInfo(@PathVariable String airportIcao) {
+    public AirportDTO getAllAirportInfo(String airportIcao) {
         AirportDomain airportDomain = airportService.airportInfo(airportIcao);
+
         return airportDTOMapper.fromAirportDomainToAirportDTO(airportDomain);
+    }
+    @Override
+    @GetMapping("/user/airportInfo/{airportIcao}")
+    public ReducedAirportDTO getAirportInfo(@PathVariable String airportIcao) {
+        AirportDomain airportDomain = airportService.airportInfo(airportIcao);
+
+        return airportDTOMapper.fromAirportDomainToReducedAirportDTO(airportDomain);
     }
 }
