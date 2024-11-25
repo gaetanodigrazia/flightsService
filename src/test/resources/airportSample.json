@@ -1,0 +1,14 @@
+[
+  {
+    "icao": "EDDF",
+    "iata": "FRA",
+    "name": "Frankfurt am Main International Airport",
+    "city": "Frankfurt-am-Main",
+    "region": "Hesse",
+    "country": "DE",
+    "elevation_ft": "364",
+    "latitude": "50.0264015198",
+    "longitude": "8.543129921",
+    "timezone": "Europe/Berlin"
+  }
+]
