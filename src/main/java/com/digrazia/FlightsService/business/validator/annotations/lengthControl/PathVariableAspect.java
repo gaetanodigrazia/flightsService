@@ -5,6 +5,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 
@@ -40,7 +41,7 @@ public class PathVariableAspect {
                 }
             } else {
                 log.error(logMessage + arg);
-                throw new RuntimeException("Valore PathVariable intercettato: " + arg.getClass());
+                throw new IllegalArgumentException("Valore PathVariable intercettato: " + arg.getClass());
             }
         }
     }
@@ -52,11 +53,11 @@ public class PathVariableAspect {
     private void checkMaxLength(String pathVariable, LengthControl lengthControl) {
         if (lengthControl.customMaxChar() != -1) {
             if (getStringLength(pathVariable) > lengthControl.customMaxChar()) {
-                throw new RuntimeException("Valore PathVariable max length: " + lengthControl.customMaxChar());
+                throw new IllegalArgumentException("Valore PathVariable max length: " + lengthControl.customMaxChar());
             }
         } else {
             if (getStringLength(pathVariable) > lengthControl.maxChar().getMaxChar()) {
-                throw new RuntimeException("Valore PathVariable max length: " + lengthControl.maxChar().getMaxChar());
+                throw new IllegalArgumentException("Valore PathVariable max length: " + lengthControl.maxChar().getMaxChar());
             }
         }
     }

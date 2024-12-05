@@ -28,7 +28,7 @@ public class AirportController implements AirportAPI {
 
     @Override
     @GetMapping("/admin/airportInfo/{airportIcao}")
-    @LengthControl
+    @LengthControl(customMaxChar = 10)
     public AirportDTO getAllAirportInfo(String airportIcao) {
         AirportDomain airportDomain = airportService.airportInfo(airportIcao);
 
