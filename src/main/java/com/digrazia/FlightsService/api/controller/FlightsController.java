@@ -7,6 +7,7 @@ import com.digrazia.FlightsService.business.model.domain.FlightInfoDomain;
 import com.digrazia.FlightsService.business.model.dto.FlightDTO;
 import com.digrazia.FlightsService.business.model.dto.ReducedFlightDTO;
 import com.digrazia.FlightsService.business.service.FlightService;
+import com.digrazia.FlightsService.business.validator.annotations.lengthControl.LengthControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,6 +29,7 @@ public class FlightsController implements FlightsAPI {
 
     @Override
     @GetMapping("/admin/flight/info/{flightIcao}")
+    @LengthControl
     public FlightDTO getAllFlightInfo(String flightIcao) {
         FlightInfoDomain flightInfoDomain = flightService.allFlightInfo(flightIcao);
 
@@ -36,6 +38,7 @@ public class FlightsController implements FlightsAPI {
 
     @Override
     @GetMapping("/user/flight/info")
+    @LengthControl
     public ReducedFlightDTO getReducedFlightInfo(String flightIcao) {
         FlightInfoDomain flightInfoDomain = flightService.reducedFlightInfo(flightIcao);
 

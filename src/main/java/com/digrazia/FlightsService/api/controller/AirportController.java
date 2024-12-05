@@ -6,6 +6,7 @@ import com.digrazia.FlightsService.business.model.domain.AirportDomain;
 import com.digrazia.FlightsService.business.model.dto.AirportDTO;
 import com.digrazia.FlightsService.business.model.dto.ReducedAirportDTO;
 import com.digrazia.FlightsService.business.service.AirportService;
+import com.digrazia.FlightsService.business.validator.annotations.lengthControl.LengthControl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,6 +28,7 @@ public class AirportController implements AirportAPI {
 
     @Override
     @GetMapping("/admin/airportInfo/{airportIcao}")
+    @LengthControl
     public AirportDTO getAllAirportInfo(String airportIcao) {
         AirportDomain airportDomain = airportService.airportInfo(airportIcao);
 
@@ -34,6 +36,7 @@ public class AirportController implements AirportAPI {
     }
     @Override
     @GetMapping("/user/airportInfo/{airportIcao}")
+    @LengthControl
     public ReducedAirportDTO getAirportInfo(String airportIcao) {
         AirportDomain airportDomain = airportService.airportInfo(airportIcao);
 
